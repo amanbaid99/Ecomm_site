@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.contrib.auth import logout
+from django.urls import reverse_lazy
 # Create your views here.
 
 def home(request):
@@ -13,6 +14,17 @@ def cart(request):
 
 def checkout(request):
     return render(request,"foodapp/checkout.html")
+
+
+def logout_view(request):
+    logout(request)
+    return render(request,'foodapp/home.html')
+
+def login(request):
+    return render(request,'foodapp/login.html')
+
+
+
 
 
 
