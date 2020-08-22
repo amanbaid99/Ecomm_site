@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
     'foodapp',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL='/images/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
+
+LOGIN_REDIRECT_URL='test'
+LOGOUT_REDIRECT_URL='thanks'
