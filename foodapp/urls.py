@@ -9,11 +9,12 @@ urlpatterns=[
     path('cart/',views.cart,name='cart'),
     path('checkout/',views.checkout,name='checkout'),
     path('store/',views.store,name='store'),
-    path('update_item/',views.updateItem,name='update_item'),
-    path('process_order/',views.processOrder,name='process_order'),
     path('signup/',views.SignUp.as_view(),name='signup'),
-    path('test/',views.TestPage.as_view(),name='test'),
-    path('thanks/',views.ThanksPage.as_view(),name='thanks'),
+    path('logout/',auth_views.LogoutView.as_view(next_page='login'),name='logout'),
+    path('login/',auth_views.LoginView.as_view(template_name='foodapp/login.html'),
+                                                                    name='login'),
+                                                                    
+   
 
 
 ]
