@@ -10,7 +10,14 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         <input type="submit"  class="btn btn-primary" value="LOGIN">
+        
     </form>
+    <br>
+    <h3>New User?</h3>
+    
+    <button class="btn btn-dark">
+        <a href="{% url 'signup' %}">SIGNUP</a>
+    </button>
 </div>
 
 {% endblock content %}
