@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import views as auth_views
 from . import forms
-from . import models
+from .models import *
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,TemplateView
 
@@ -10,8 +10,10 @@ from django.views.generic import CreateView,TemplateView
 # Create your views here.
 
 def home(request):
+    businesses= Business.objects.all()
+    context={'businesses':businesses}
    
-    return render(request,"foodapp/home.html")
+    return render(request,"foodapp/home.html",context)
 
 def store(request):
     
@@ -29,7 +31,8 @@ def checkout(request):
 class SignUp(CreateView):
     form_class=forms.UserCreateForm
     success_url=reverse_lazy('login')
-    template_name='accounts/signup.html'
+    template_name='foodapp/signup.html'
+    
 
 class LogOutView(TemplateView):
     template_name = "foodapp/login.html"
