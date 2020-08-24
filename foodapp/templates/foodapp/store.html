@@ -1,32 +1,31 @@
 {% extends 'foodapp/main.html' %}
 {% load static %}
 {% block content %}
+<div class="container">
 
 <div class="row">
-    <div class="container">
-        <div class="container">
-            <br><br>
-            <form class="form-inline d-flex justify-content-end">
-                <input class="form-control md-sm-12" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form> &nbsp; &nbsp;
-    <div style="margin-top: 20px;" class="col-sm-4">
+    
+    
+        {% for menu in menus %}   
+    <div style="margin-top: 30px;" class="col-md-4">
         <div class="box-element product">
         <img  class="thumbnail" src="{% static 'images/assets/placeholder.png' %}" alt="">
         <hr>
-        <h6><strong>Name/Title:</strong></h6>
+        <h6><strong>{{menu.dish_name}}</strong></h6>
         <hr>
         <h6>Type:</h6>
-        <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">
-            <a href="{% url 'store' %}"> Add to Cart</a></button>        
+        <button data-product="" data-action="add" class="btn btn-outline-secondary add-btn update-cart">
+            <a href="{% url 'cart' %}"> Add to Cart</a></button>        
         
             
-        <h4 style="display: inline-block; float: right;">999 RS</h4>
+        <h4 style="display: inline-block; float: right;">{{menu.price}}</h4>
         </div>
       
 
     </div>
-    </div>
+    {% endfor %}
+    
+</div>
 </div>
 
 

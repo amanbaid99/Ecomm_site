@@ -4,6 +4,7 @@ from . import forms
 from .models import *
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,TemplateView
+import json
 
 
 
@@ -15,9 +16,10 @@ def home(request):
    
     return render(request,"foodapp/home.html",context)
 
-def store(request):
-    
-    return render(request,"foodapp/store.html")
+def store(request,id):
+    menus=Menu.objects.filter(business_id=id)
+    context={'menus':menus}
+    return render(request,"foodapp/store.html",context)
 
 def cart(request):
 

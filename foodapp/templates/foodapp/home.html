@@ -21,12 +21,14 @@
         <h6><strong>{{business.bname}}</strong></h6>
         <hr>
         <h6>{{business.specialities}}</h6>
-        
-        <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">
-            <a href="{% url 'store' %}"> View</a></button>        
+        <h6>{{business.location}} &nbsp;&nbsp;
+            <button data-product={{business.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">
+                <a href="{% url 'store' business.id %}"> View</a></button>
+        </h6>
+                
         
             
-            <h6>{{business.location}}</h6>
+            
       
 
     </div>
