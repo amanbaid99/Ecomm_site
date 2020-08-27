@@ -3,5 +3,6 @@ from . models import *
 
 # Register your models here.
 
-admin.site.register(Business)
-admin.site.register(Menu)
+admin.site.register(Product)
+admin.site.register(Order)
+admin.site.register(OrderItem)

@@ -4,34 +4,43 @@
 
 
 
-<div class="jumbotron">
-    <div class="container">
-    <h1 style="text-align: center;">Welcome to HomeFoods!  {{user.username}} </h1>
-</div>
+<div class="jumbotron ">
+    <div style="text-align: center;" class="container">
+    <h1 >Welcome to HomeFoods!  {{user.username}} </h1>
+    <h2><p>What are you craving today?</p></h2>
+    </div>
+    
 </div>
 <div class="container">
 
-<div class="row">
+    <div class="row">
     
-    {% for business in businesses %}
-    <div class="col-md-4">
+    
+        {% for product in products %}   
+    <div style="margin-top: 30px;" class="col-md-4">
         <div class="box-element product">
-        <img  class="thumbnail" src="{% static 'images/assets/placeholder.png' %}" alt="">
+        <img  class="thumbnail" src="{{product.imageURL}}" alt="">
         <hr>
-        <h6><strong>{{business.bname}}</strong></h6>
+        <h6><strong>{{product.name}}</strong></h6>
         <hr>
-        <h6>{{business.specialities}}</h6>
-        <h6>{{business.location}} &nbsp;&nbsp;
-            <button data-product={{business.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">
-                <a href="{% url 'store' business.id %}"> View</a></button>
-        </h6>
-                
+        <h6>Type:</h6>
+        <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">
+        <a href="#"> Add to Cart</a></button>&nbsp;
+        <!-- <div class="quantity">
+                <img data-product="" data-action="add" class="chg-quantity update-cart" src="{% static  'images/assets/arrow-up.png' %}">
+        
+                <img data-product="" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/assets/arrow-down.png' %}">
+        </div> -->
+        <h4 style="display: inline-block; float: right;">{{product.price}}
+        </h4>
+        
+        </div>        
         
             
-            
+        
+         
       
 
-    </div>
     </div>
     {% endfor %}
 </div>
