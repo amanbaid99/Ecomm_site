@@ -13,6 +13,8 @@ urlpatterns=[
     path('logout/',auth_views.LogoutView.as_view(next_page='login'),name='logout'),
     path('login/',auth_views.LoginView.as_view(template_name='foodapp/login.html'),
                                                                     name='login'),
+    path('process_order/',views.processOrder,name='process_order'),                                                
+    
                                                                     
    
 

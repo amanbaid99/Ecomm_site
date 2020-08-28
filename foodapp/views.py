@@ -65,6 +65,36 @@ def checkout(request):
 
     return render(request,"foodapp/checkout.html",context)
 
+def processOrder(request):
+    transaction_id=datetime.datetime.now().timestamp()
+    data=json.loads(request.body)
+    
+    if request.user.is_authenticated:
+        user=request.user
+        order,created=Order.objects.get_or_create(user=user,complete=False)
+    else:
+        user, order = guestOrder(request, data)
+    total=float(data['form']['total'])
+    order.transaction_id=transaction_id 
+
+    if total == order.get_cart_total:
+        order.complete=True
+    order.save()
+
+    if order.shipping == True:
+        ShippingAddress.objects.create(
+            user=user,
+            order=order,
+            address=data['shipping']['address'],
+            city=data['shipping']['city'],
+            state=data['shipping']['state'],
+            zipcode=data['shipping']['zipcode'],
+        )
+
+
+    return JsonResponse('Payment complete', safe=False)
+
+
 
 class SignUp(CreateView):
     form_class=forms.UserCreateForm

@@ -9,7 +9,7 @@ for (i = 0; i < updateBtns.length; i++) {
 		console.log('USER:', user)
 
 		if (user == 'AnonymousUser'){
-			console.log("not logged in")
+			addCookieItem(productId, action)
 		}else{
 			updateUserOrder(productId, action)
 		}
