@@ -2,15 +2,6 @@
 {% load static %}
 {% block content %}
 
-
-
-<div class="jumbotron ">
-    <div style="text-align: center;" class="container">
-    <h1 >Welcome to HomeFoods!  {{user.username}} </h1>
-    <h2><p>What are you craving today?</p></h2>
-    </div>
-    
-</div>
 <div class="container">
 
     <div class="row">
@@ -27,7 +18,7 @@
         <button  data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">
         <a href="#"> Add to Cart</a></button>&nbsp;
 
-        <button data-product="{{ product.id }}"  class="btn btn-outline-secondary">
+        <button data-product="{{ product.id }}" class="btn btn-outline-secondary">
             <a href="{% url 'detail' %}">View</a>
 
         </button>
@@ -47,8 +38,5 @@
     {% endfor %}
 </div>
 </div>
-
-
-
 
 {% endblock content %}

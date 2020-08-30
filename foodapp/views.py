@@ -19,6 +19,10 @@ def store(request):
     products=Product.objects.all()
     context={'products':products,'cartItems':cartItems}
     return render(request,"foodapp/home.html",context)
+    
+def detail(request):
+
+    return render(request,"foodapp/detail.html",context)
 
 def cart(request):
     data=cartData(request)
