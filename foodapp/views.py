@@ -10,8 +10,12 @@ from . utiils import cartData
 
 
 def store(request):
+    data=cartData(request)
+    cartItems=data['cartItems']
+    order=data['order']
+    items=data['items']
     products=Product.objects.all()
-    context={'products':products}
+    context={'products':products,'items':items,'order':order,'cartItems':cartItems}
     return render(request,"foodapp/home.html",context)
     
 def detail(request,pk):
@@ -30,7 +34,12 @@ def cart(request):
 
 
 def checkout(request):
-    return render(request,"foodapp/checkout.html",)
+    data=cartData(request)
+    cartItems=data['cartItems']
+    order=data['order']
+    items=data['items']
+    context={'items':items,'order':order,'cartItems':cartItems}
+    return render(request,"foodapp/checkout.html",context)
 
 
 class SignUp(CreateView):
