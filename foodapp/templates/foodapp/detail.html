@@ -2,40 +2,28 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
+<div style="margin-top: 30px;" class="container">
 
-    <div class="row">
+<a class ="btn btn-outline-dark" href="{% url 'store' %}">&#x2190;Back to Store</a>
+<div class="d-flex justify-content-center">
     
-    
-        {% for product in products %}   
-    <div style="margin-top: 30px;" class="col-md-4">
-        <div class="box-element product">
-        <img  class="thumbnail" src="{{product.imageURL}}" alt="">
-        <hr>
-        <h6><strong>{{product.name}}</strong></h6>
-        <hr>
-        <h6>Type:</h6>
-        <button  data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">
-        <a href="#"> Add to Cart</a></button>&nbsp;
-
-        <button data-product="{{ product.id }}" class="btn btn-outline-secondary">
-            <a href="{% url 'detail' %}">View</a>
-
-        </button>
+    <div class="col-md-8 ">
         
-        <h4 style="display: inline-block; float: right;">{{product.price}}
-        </h4>
-        
+        <div class="box-element product ">
+            <img  class="thumbnail_detail" src="{{products.imageURL}}" alt="">
+            <hr>
+            <h6><strong>{{products.name}}</strong></h6>
+            <hr>
+            <h6>Type:</h6>
+            <button  data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">
+            <a href="#"> Add to Cart</a></button>
+
+            <h4 style="display: inline-block; float: right;">{{products.price}}</h4>
+            
         </div> 
-            
         
-            
-        
-         
-      
-
     </div>
-    {% endfor %}
+
 </div>
 </div>
 

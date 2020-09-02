@@ -13,8 +13,8 @@
 
             <table class="table">
                 <tr>
-                    <th><h5>Items:<strong>{{order.get_cart_items}}</strong></h5></th>
-                    <th><h5>Total:<strong>{{order.get_cart_total |floatformat:2}} RS</strong></h5></th>
+                    <th><h5>Items:<strong></strong></h5></th>
+                    <th><h5>Total:<strong></strong></h5></th>
 
                     <th>
                         <a style="float:right; margin: 5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
@@ -37,17 +37,17 @@
             <div class="cart-row">
                 <div style="flex: 2;"><img class="row-image" src="{{item.product.imageURL }}" alt="">
                 </div>
-                <div style="flex: 2;">{{item.product.name}}</div>
-                <div style="flex: 1;"> {{item.product.price |floatformat:2 }}RS</div>
+                <div style="flex: 2;"></div>
+                <div style="flex: 1;"> </div>
                 <div style="flex: 1;">
-                    <p class="quantity">{{item.quantity}}</p>
+                    <p class="quantity"></p>
 						<div class="quantity">
 							<img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/assets/arrow-up.png' %}">
 					
 							<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/assets/arrow-down.png' %}">
 						</div>
                 </div>
-                <div style="flex: 1;">{{item.get_total}}RS</div>
+                <div style="flex: 1;"></div>
             </div>
             {% endfor %}
 

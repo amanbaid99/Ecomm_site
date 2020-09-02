@@ -28,7 +28,7 @@
         <a href="#"> Add to Cart</a></button>&nbsp;
 
         <button data-product="{{ product.id }}"  class="btn btn-outline-secondary">
-            <a href="{% url 'detail' %}">View</a>
+            <a href="{% url 'detail' product.id %}">View</a>
 
         </button>
         
