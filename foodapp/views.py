@@ -4,6 +4,7 @@ from . import forms
 from .models import *
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,TemplateView
+from . utiils import cartData
 
 
 
@@ -20,7 +21,12 @@ def detail(request,pk):
     return render(request,"foodapp/detail.html",context)
 
 def cart(request):
-    return render(request,"foodapp/cart.html")
+    data=cartData(request)
+    cartItems=data['cartItems']
+    order=data['order']
+    items=data['items']
+    context={'items':items,'order':order,'cartItems':cartItems}
+    return render(request,"foodapp/cart.html",context)
 
 
 def checkout(request):
