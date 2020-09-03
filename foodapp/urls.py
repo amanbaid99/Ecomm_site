@@ -11,7 +11,8 @@ urlpatterns=[
     path('signup/',views.SignUp.as_view(),name='signup'),
     path('logout/',auth_views.LogoutView.as_view(next_page='login'),name='logout'),
     path('login/',auth_views.LoginView.as_view(template_name='foodapp/login.html'),name='login'),
-    path('detail/<int:pk>/',views.detail,name='detail'),                                                          
+    path('detail/<int:pk>/',views.detail,name='detail'),          
+    path('update_item/',views.updateItem,name='update_item'),                                                
     
                                                                     
    
