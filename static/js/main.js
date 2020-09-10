@@ -8,7 +8,7 @@ for (i=0; i< updateBtns.length; i++){
         
         console.log('prductId:',productId,'Action:',action)
         console.log('USER:',user)
-
+        
         updateUserOrder(productId,action)    
     })
 }
